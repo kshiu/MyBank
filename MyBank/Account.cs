@@ -14,7 +14,7 @@ namespace MyBank
     public enum TypeOfAccounts
     {
         Checking,
-        Savings,
+        Savings
     }
     /// <summary>
     /// This class describes a bank account
