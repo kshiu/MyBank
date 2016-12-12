@@ -20,6 +20,7 @@ namespace MyBank
                 Console.WriteLine("1. Create Account");
                 Console.WriteLine("2. Deposit");
                 Console.WriteLine("3. Withdraw");
+                Console.WriteLine("4. Print all accounts");
                 choice = Console.ReadLine(); //accepts input from user
                 switch (choice)  //switch tab tab 
                 {
@@ -29,13 +30,19 @@ namespace MyBank
                     case "1":
                         Console.Write("Email Address: ");
                         var emailAddress = Console.ReadLine();
+                        var myAccount = Bank.CreateAccount(emailAddress, TypeOfAccounts.Checking);
                         //instantiating a class[a new Account]
-                        var checkingAccount = new Account();
+                        //var checkingAccount = new Account();
                         //no longer able to use this line bc you should not be able to set AccountNumber -> checkingAccount.AccountNumber = 123;
-                        checkingAccount.EmailAddress = emailAddress;
-                        checkingAccount.AccountType = TypeOfAccounts.Checking; //enum list of options
-                                                                               // checkingAccount.Deposit(1002.50M); //use 'M' to specify decimal. M stands for Money
-                        Console.WriteLine($"Account number: {checkingAccount.AccountNumber}, Balance: {checkingAccount.Balance:C}"); //C stands for currency
+                        //checkingAccount.EmailAddress = emailAddress;
+                        //checkingAccount.AccountType = TypeOfAccounts.Checking; //enum list of options
+                        // checkingAccount.Deposit(1002.50M); //use 'M' to specify decimal. M stands for Money
+                        Console.WriteLine($"Account number: {myAccount.AccountNumber}, Balance: {myAccount.Balance:C}"); //C stands for currency
+                        break;
+                    case "2":
+                        break;
+                    case "4":
+                        Bank.PrintAllAccounts();
                         break;
                     default:
                         break;
